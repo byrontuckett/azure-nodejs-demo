@@ -20,13 +20,13 @@ pr:
 pool:
   vmImage: 'ubuntu-latest'
 
-schedules:
-  - cron: "0 12 * * 0"
-    displayName: Weekly Sunday build
-    always: true
-    branches:
-      include:
-      - main
+# schedules:
+#   - cron: "0 12 * * 0"
+#     displayName: Weekly Sunday build
+#     always: true
+#     branches:
+#       include:
+#       - main
 
 variables:
 - template: vars/global.yaml
@@ -57,4 +57,4 @@ stages:
   condition: and(succeeded(), eq(variables.deployMain,'True'))
   jobs:
   - template: jobs/app-service.yaml
-  - template: jobs/asset-pipeline.yaml
+  # - template: jobs/asset-pipeline.yaml
